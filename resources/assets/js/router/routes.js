@@ -1,3 +1,5 @@
+import SingleThread from './../components/SingleThread'
+
 const Welcome = () => import('~/pages/welcome').then(m => m.default || m)
 const Login = () => import('~/pages/auth/login').then(m => m.default || m)
 const Register = () => import('~/pages/auth/register').then(m => m.default || m)
@@ -17,6 +19,8 @@ export default [
   { path: '/register', name: 'register', component: Register },
   { path: '/password/reset', name: 'password.request', component: PasswordEmail },
   { path: '/password/reset/:token', name: 'password.reset', component: PasswordReset },
+
+  { path: '/threads/:id', name: 'show', component: SingleThread },
 
   { path: '/home', name: 'home', component: Home },
   { path: '/settings',
