@@ -4,7 +4,7 @@
     {{ $t('you_are_logged_in') }}
   </card>
 
-    <threads :items="threads"></threads>
+    <thread-template :items="threads"></thread-template>
 
 </div>
 

@@ -46,5 +46,13 @@ mix.webpackConfig({
   output: {
     chunkFilename: 'js/[name].[chunkhash].js',
     publicPath: mix.config.hmr ? '//localhost:8080' : '/'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.styl$/,
+        loader: ['style-loader', 'css-loader', 'stylus-loader']
+      }
+    ]
   }
 })

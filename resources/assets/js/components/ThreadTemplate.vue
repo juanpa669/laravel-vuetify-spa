@@ -1,8 +1,12 @@
 <template>
-<v-container grid-list-sm>
- <v-layout v-for="item in items" :key="item.id">
-    <v-flex xs12 sm8 offset-sm2>
-      <v-card color="grey lighten-3">
+  <v-container grid-list-sm>
+ <v-layout wrap>
+    <v-flex xs12 sm8 offset-sm2 v-for="item in items" :key="item.id">
+
+              <v-card
+              hover
+              ripple
+              color="grey lighten-3">
           <v-container fill-height fluid>
             <v-layout fill-height>
               <v-flex xs12 align-end flexbox>
@@ -19,14 +23,7 @@
         </v-card-title>
         <p>{{item.body}}</p>
         <v-card-actions>
-          <v-btn flat icon><v-icon dark>share</v-icon></v-btn>
-          <v-btn flat icon>
-            <v-icon large color="orange">explore</v-icon>
-          </v-btn>
-          <v-spacer></v-spacer>
-           <v-btn @click="toggleFavorite" fab dark small :color="isFavorite === true ? 'white' : 'pink'">
-            <v-icon :color="isFavorite === true ? 'red' : 'white'">favorite</v-icon>
-          </v-btn>
+            <base-actions :item="item"></base-actions>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -36,24 +33,12 @@
 
 <script>
 export default {
-  name: 'Threads',
+  name: 'thread-template',
 
   props: {
     items: {
       type: Array,
       required: true
-      }
-    },
-
-    data () {
-      return {
-        isFavorite: false
-      }
-    },
-
-    methods: {
-      toggleFavorite () {
-        return this.isFavorite = !this.isFavorite
       }
     }
 }
